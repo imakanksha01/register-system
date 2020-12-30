@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.vanya.assignment.type.Gender;
+
 @Entity
 public class Person {
 
@@ -16,19 +18,26 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Integer age;
-	private Date entryTime;
-	
+	private Gender gender;
 
 	public Person() {
 		super();
 	}
 
-	public Person(String firstName, String lastName, Integer age, Date entryTime) {
+	public Person(String firstName, String lastName, Integer age, Gender gender) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
-		this.entryTime = entryTime;
+		this.gender = gender;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -55,25 +64,27 @@ public class Person {
 		this.age = age;
 	}
 
-	public Date getEntryTime() {
-		return entryTime;
+	public Gender getGender() {
+		return gender;
 	}
 
-	public void setEntryTime(Date entryTime) {
-		this.entryTime = entryTime;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Person [firstName=");
+		builder.append("Person [id=");
+		builder.append(id);
+		builder.append(", firstName=");
 		builder.append(firstName);
 		builder.append(", lastName=");
 		builder.append(lastName);
 		builder.append(", age=");
 		builder.append(age);
-		builder.append(", entryTime=");
-		builder.append(entryTime);
+		builder.append(", gender=");
+		builder.append(gender);
 		builder.append("]");
 		return builder.toString();
 	}
