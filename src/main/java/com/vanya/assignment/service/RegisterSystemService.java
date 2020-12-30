@@ -1,5 +1,7 @@
 package com.vanya.assignment.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +22,7 @@ public class RegisterSystemService {
 		return repository.save(person);
 	}
 
+	public Iterable<Person> findAll() {
+        return repository.findAll();
+    }
 }
