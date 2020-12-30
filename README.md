@@ -1,3 +1,3 @@
 # Getting Started
 
-This is the assignment to build register system.
+This is an assignment to build APIs for register system.
