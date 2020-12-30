@@ -1,7 +1,5 @@
 package com.vanya.assignment.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +7,7 @@ import com.vanya.assignment.model.Person;
 import com.vanya.assignment.repository.PersonRepository;
 
 @Service
-public class RegisterSystemService {
+public class PersonService {
 	
 	@Autowired
 	private PersonRepository repository;

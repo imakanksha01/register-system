@@ -8,31 +8,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vanya.assignment.model.Person;
-import com.vanya.assignment.service.RegisterSystemService;
+import com.vanya.assignment.service.PersonService;
 
 @RestController
-public class RegisterSystemRestController {
+@RequestMapping("/person")
+public class PersonController {
 
 	@Autowired
-	private RegisterSystemService service;
+	private PersonService service;
 
-	@GetMapping("/person/{id}")
+	@GetMapping("/{id}")
 	public Person getPerson(@PathVariable Long id) {
 		return service.getPerson(id);
 	}
 
-	@PostMapping(path = "/person", consumes = "application/json")
+	@PostMapping(consumes = "application/json")
 	public Person addPerson(@RequestBody Person person) {
 		return service.addPerson(person);
 	}
 
-	@GetMapping("/person")
+	@GetMapping("/all")
 	public List<Person> getAllPersons() {
 		return (List<Person>) service.findAll();
-		
+
 	}
 
 }
