@@ -2,6 +2,7 @@ package com.vanya.assignment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,9 @@ public class RegisterSystemRestController {
 	@Autowired
 	private RegisterSystemService service;
 
-	@GetMapping("/person")
-	public Person getPerson() {
-		return service.getPerson() ;
+	@GetMapping("/person/{id}")
+	public Person getPerson(@PathVariable Long id) {
+		return service.getPerson(id) ;
 	}
 	
 	@PostMapping(path = "/person", consumes = "application/json")

@@ -1,7 +1,5 @@
 package com.vanya.assignment.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +12,8 @@ public class RegisterSystemService {
 	@Autowired
 	private PersonRepository repository;
 
-	public Person getPerson() {
-		return new Person("Akanksha", "Singh", 21, new Date());
+	public Person getPerson(Long id) {
+		return repository.findById(id).get();
 	}
 
 	public Person addPerson(Person person) {
