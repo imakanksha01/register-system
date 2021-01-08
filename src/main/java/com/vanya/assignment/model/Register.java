@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 public class Register {
 
@@ -18,42 +23,9 @@ public class Register {
 
 	@OneToOne
 	@MapsId
-	//@JoinColumn(name = "id")
 	private Person person;
 	private Date entryTime;
 	private Date exitTime;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
-	public Date getEntryTime() {
-		return entryTime;
-	}
-
-	public void setEntryTime(Date entryTime) {
-		this.entryTime = entryTime;
-	}
-
-	public Date getExitTime() {
-		return exitTime;
-	}
-
-	public void setExitTime(Date exitTime) {
-		this.exitTime = exitTime;
-	}
 
 	@Override
 	public String toString() {
